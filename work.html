@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Work Experience - Mohamad Zulfika Bin Ahmad (Zul)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: white;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Site Header */
+        .site-header {
+    	   background: linear-gradient(135deg, #0d1117 0%, #161b22 45%, #1f1b4d 100%);
+    	   padding: 28px 0;
+    	   text-align: center;
+           border-bottom: 2px solid #655dfc;
+           box-shadow: 0 4px 20px rgba(101, 93, 252, 0.25);
+           position: center;
+           overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+
+        .logo-dot {
+            color: #ff5858;
+        }
+
+        .header-tagline {
+            font-size: 14px;
+            color: #8b949e;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #21262d;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            display: inline-block;
+        }
+
+        nav a {
+            display: block;
+            color: #8b949e;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 6px;
+            margin: 0 2px;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+            background-color: rgba(88, 166, 255, 0.1);
+        }
+
+        /* Main Container */
+        .container {
+            flex: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 50px;
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header-label {
+            font-size: 14px;
+            color: #58a6ff;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .page-header h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #c9d1d9 50%, #8b949e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1.5px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #8b949e;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #c9d1d9;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, #58a6ff 0%, #3fb950 100%);
+            border-radius: 2px;
+        }
+
+        .section-content {
+            background-color: #161b22;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Work Cards */
+        .work-card {
+            background-color: #0d1117;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .work-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .work-card:hover {
+            border-color: #58a6ff;
+            box-shadow: 0 8px 25px rgba(88, 166, 255, 0.1);
+        }
+
+        .work-card h3 {
+            color: #c9d1d9;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            padding-right: 100px;
+        }
+
+        .work-card .company {
+            color: #58a6ff;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .work-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        .meta-icon {
+            color: #3fb950;
+        }
+
+        .work-card .description {
+            color: #8b949e;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-current {
+            background-color: rgba(88, 166, 255, 0.15);
+            color: #58a6ff;
+            border: 1px solid rgba(88, 166, 255, 0.3);
+        }
+
+        .status-completed {
+            background-color: rgba(63, 185, 80, 0.15);
+            color: #3fb950;
+            border: 1px solid rgba(63, 185, 80, 0.3);
+        }
+
+        /* Responsibilities Section */
+        .responsibilities-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #30363d;
+        }
+
+        .responsibilities-title {
+            color: #c9d1d9;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .responsibilities-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .responsibilities-list li {
+            color: #8b949e;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 12px;
+            background-color: #161b22;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .responsibilities-list li:hover {
+            background-color: #21262d;
+        }
+
+        .responsibilities-list li::before {
+            content: ">";
+            color: #58a6ff;
+            font-weight: 600;
+            font-family: monospace;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+            border-top: 1px solid #21262d;
+            padding: 20px;
+            text-align: center;
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .container {
+                padding: 50px 30px;
+            }
+
+            .page-header h1 {
+                font-size: 44px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .status-badge {
+                position: static;
+                display: inline-block;
+                margin-bottom: 15px;
+            }
+
+            .work-card h3 {
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 0;
+            }
+
+            nav a {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .page-header {
+                margin-bottom: 40px;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .page-header p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .section-content {
+                padding: 25px;
+            }
+
+            .work-card {
+                padding: 25px;
+            }
+
+            .work-card h3 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                padding: 8px 8px;
+                font-size: 12px;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+
+            .page-header-label {
+                font-size: 12px;
+            }
+
+            .page-header h1 {
+                font-size: 30px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .section-content {
+                padding: 20px;
+            }
+
+            .work-card {
+                padding: 20px;
+            }
+
+            .work-card h3 {
+                font-size: 16px;
+            }
+
+            .work-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <span class="logo">Mohamad Zulfika Bin Ahmad<span class="logo-dot">.</span></span>
+            <span class="header-tagline">Biography Portfolio Website</span>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutme.html">About</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <p class="page-header-label">Professional Journey</p>
+            <h1>Work Experience</h1>
+            <p>My journey is about growing through every role, every challenge, and every experience</p>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">Career History</h2>
+            <div class="section-content">
+                <div class="work-card">
+                    <span class="status-badge status-current">Current</span>
+                    <h3>Business Support And Sales</h3>
+                    <div class="company">TM Tech Technology Sdn. Bhd.</div>
+                    <div class="work-meta">
+                        <span class="meta-item">
+                            <span class="meta-icon">📅</span> 2018 - Present
+                        </span>
+                        <span class="meta-item">
+                            <span class="meta-icon">📍</span> Shah Alam, Selangor
+                        </span>
+                        <span class="meta-item">
+                            <span class="meta-icon">💼</span> Full-time · On-site
+                        </span>
+                    </div>
+                    <div class="description">
+                        As a part of this position, I will support business customers, assist with applications, support sales activities, respond to 				customers' enquiries and offer appropriate Unifi Business solutions..
+                    </div>
+                    <div class="responsibilities-section">
+                        <div class="responsibilities-title">Key Responsibilities</div>
+                        <ul class="responsibilities-list">
+                            <li>Support Business Customers for Unifi Business product enquiries and applications for service.</li>
+                            <li>Perform site surveys or site visits on areas where there is no infrastructure for the internet, and assist in migration when 			        necessary.</li>
+                            <li>Process customer paperwork, application information and follow up procedure until application is submitted.</li>
+                            <li>Help the sales, customer interaction and business solution consultation process</li>
+                            <li>Communicate with internal teams on status of applications, application updates, and customer service problems.</li>
+                        </ul>
+                    </div>
+                </div>
+
+		<div class="work-card">
+                    <span class="status-badge status-completed">Completed</span>
+                    <h3>Branch Manager</h3>
+                    <div class="company">Manager at 99 Speedmart Sdn. Bhd.</div>
+                    <div class="work-meta">
+                        <span class="meta-item">
+                            <span class="meta-icon">📅</span> 2014 - 2018
+                        </span>
+                        <span class="meta-item">
+                            <span class="meta-icon">📍</span> USJ 10, Selangor
+                        </span>
+                        <span class="meta-item">
+                            <span class="meta-icon">💼</span> Fulltime · On-site
+                        </span>
+                    </div>
+                    <div class="description">
+                        As a Manager at 99 Speedmart Sdn. I was in charge of the daily running of the store, Bhd., and to ensure that the store runs 				smoothly. My duties involved supervising employees, keeping an eye on inventory, dealing with customer needs, organizing sales tasks 			and making sure that appropriate business protocols are adhered to.
+                    </div>
+                    <div class="responsibilities-section">
+                        <div class="responsibilities-title">Key Responsibilities</div>
+                        <ul class="responsibilities-list">
+                            <li>Supervised daily store activities to provide for a smooth and efficient business operation.</li>
+                            <li>Oversees the performance of staff and other team members and their duties.</li>
+                            <li>Recorded stock levels, product stock layout and inventory management.</li>
+                            <li>Managed customer enquiries/complaints/other service related issues professionally.</li>
+                        </ul>
+		    </div>
+                </div>
+
+               <div class="work-card">
+                    <span class="status-badge status-completed">Completed</span>
+                    <h3>Business Development Officer</h3>
+                    <div class="company">Koperasi Pangkor Berhad</div>
+                    <div class="work-meta">
+                        <span class="meta-item">
+                            <span class="meta-icon">📅</span> 2012 - 2014
+                        </span>
+                        <span class="meta-item">
+                            <span class="meta-icon">📍</span> Pulau Pangkor, Perak
+                        </span>
+                        <span class="meta-item">
+                            <span class="meta-icon">💼</span> Fulltime · On-site
+                        </span>
+                    </div>
+                    <div class="description">
+                        As a Business Development Officer, I was responsible for helping the cooperative to expand the business, to assist in business 						sales, relationship building with customers and to prepare business reports. This role helped develop my communication skills, planning skills and 			business management skills.
+                    </div>
+                    <div class="responsibilities-section">
+                        <div class="responsibilities-title">Key Responsibilities</div>
+                        <ul class="responsibilities-list">
+                            <li>Developed and implemented business strategies that enhance the product and services of the cooperative and its 					        operations.</li>
+                            <li>Helped with the execution of promotion campaigns, sales campaigns and business development campaigns</li>
+                            <li>Kept customers, members, suppliers and business partners informed and happy.</li>
+                            <li>Created reports, proposals, and documentation of business activities and performance updates.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p style="margin-bottom: 10px;">&copy; 2026 Mohamad Zulfika Bin Ahmad. All rights reserved.</p><br>
+        <p>
+            Recommended browser: Google Chrome / Mozilla Firefox<br>
+            Recommended resolution: 1366 × 768 and above
+        </p>
+        <p>Last updated: 31 May 2026</p>
+    </footer>
+</body>
+</html>

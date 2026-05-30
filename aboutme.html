@@ -1,0 +1,676 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About Me - Student Information</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: white;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Site Header */
+        .site-header {
+    		background: linear-gradient(135deg, #0d1117 0%, #161b22 45%, #1f1b4d 100%);
+    		padding: 28px 0;
+    		text-align: center;
+    		border-bottom: 2px solid #655dfc;
+    		box-shadow: 0 4px 20px rgba(101, 93, 252, 0.25);
+    		position: center;
+    		overflow: hidden;
+	}
+
+	/* Decorative glow effect */
+	.site-header::before {
+  		content: "";
+   		position: absolute;
+    		top: -50%;
+    		left: 50%;
+    		width: 400px;
+    		height: 400px;
+    		background: radial-gradient(circle, rgba(101, 93, 252, 0.25), transparent 70%);
+    		transform: translateX(-50%);
+    		z-index: 0;
+	}
+
+	.header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+
+        .logo-dot {
+            color: #ff5858;
+        }
+
+        .header-tagline {
+            font-size: 14px;
+            color: #8b949e;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #655dfc;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            display: inline-block;
+        }
+
+        nav a {
+            display: block;
+            color: #8b949e;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 6px;
+            margin: 0 2px;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+            background-color: rgba(88, 166, 255, 0.1);
+        }
+
+        /* Main Container */
+        .container {
+            flex: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 50px;
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header-label {
+            font-size: 14px;
+            color: #58a6ff;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .page-header h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #c9d1d9 50%, #8b949e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1.5px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #8b949e;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Info Section */
+        .info-section {
+            background-color: #161b22;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .student-image {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .student-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #58a6ff;
+            object-fit: cover;
+            box-shadow: 0 8px 30px rgba(88, 166, 255, 0.3);
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table td {
+            padding: 20px;
+            border: 1px solid #30363d;
+            background-color: #0d1117;
+            transition: border-color 0.3s;
+        }
+
+        .info-table tr:hover td {
+            border-color: #58a6ff;
+        }
+
+        .info-table td:first-child {
+            font-size: 13px;
+            color: #8b949e;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            width: 30%;
+            vertical-align: top;
+        }
+
+        .info-table td:last-child {
+            font-size: 16px;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #58a6ff;
+            font-weight: 500;
+        }
+
+        .highlight-green {
+            color: #3fb950;
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #c9d1d9;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, #58a6ff 0%, #3fb950 100%);
+            border-radius: 2px;
+        }
+
+        .section-content {
+            background-color: #161b22;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+            line-height: 1.8;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Bio Section */
+        .bio-text {
+            font-size: 16px;
+            color: #8b949e;
+            line-height: 1.8;
+        }
+
+        .bio-text + .bio-text {
+            margin-top: 20px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background-color: #0d1117;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+            box-shadow: 0 8px 25px rgba(88, 166, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #c9d1d9;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 8px 0;
+            color: #8b949e;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s;
+        }
+
+        .skill-category li:hover {
+            color: #c9d1d9;
+        }
+
+        .skill-category li::before {
+            content: ">";
+            color: #3fb950;
+            font-weight: 600;
+            font-family: monospace;
+        
+        }
+
+        /* Languages Section */
+        .languages-list {
+            display: flex;
+	    text-align: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            background-color: #0d1117;
+            padding: 20px 30px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            text-align: center;
+            min-width: 160px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .language-item:hover {
+            transform: translateY(-3px);
+            border-color: #58a6ff;
+        }
+
+        .language-flag {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .language-item h3 {
+            color: #c9d1d9;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .language-item .proficiency {
+            color: #3fb950;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Video Section */
+        .video-container {
+            background-color: #0d1117;
+            padding: 0;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+            border-top: 1px solid #21262d;
+            padding: 20px;
+            text-align: center;
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .container {
+                padding: 50px 30px;
+            }
+
+            .page-header h1 {
+                font-size: 44px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 0;
+            }
+
+            nav a {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .page-header {
+                margin-bottom: 40px;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .page-header p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .section-content {
+                padding: 25px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .languages-list {
+                justify-content: center;
+            }
+
+            .info-section {
+                padding: 30px 20px;
+            }
+
+            .student-image img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                padding: 8px 8px;
+                font-size: 12px;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+
+            .page-header-label {
+                font-size: 12px;
+            }
+
+            .page-header h1 {
+                font-size: 30px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .section-content {
+                padding: 20px;
+            }
+
+            .skill-category {
+                padding: 20px;
+            }
+
+            .award-item {
+                padding: 20px;
+            }
+
+            .language-item {
+                padding: 15px 25px;
+                min-width: 140px;
+            }
+
+            .info-section {
+                padding: 25px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <span class="logo">Mohamad Zulfika Bin Ahmad<span class="logo-dot">.</span></span>
+            <span class="header-tagline">Biography Portfolio Website</span>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutme.html">About</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <article class="page-header">
+            <p class="page-header-label">Student Information</p>
+            <h1>About Me</h1>
+        </article>
+
+        <section class="info-section">
+            <div class="student-image">
+                <img src="img/Zul2.png" alt="Mohamad Zulfika Bin Ahmad">
+            </div>
+
+            <table class="info-table">
+                <tr>
+                    <td>Title</td>
+                    <td>Biography Portfolio Website</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>Mohamad Zulfika Bin Ahmad</td>
+                </tr>
+                <tr>
+                    <td>Student ID</td>
+                    <td>2025903073</td>
+                </tr>
+                <tr>
+                    <td>Group</td>
+                    <td>NCIMBSF3A</td>
+                </tr>
+                <tr>
+                    <td>Course Code</td>
+                    <td>IMS458</td>
+                </tr>
+                <tr>
+                    <td>Course Name</td>
+                    <td>Web Design And Development</td>
+                </tr>
+                <tr>
+                    <td>Program Code & Mode</td>
+                    <td>CDIM262 (e-PJJ)</td>
+                </tr>
+                <tr>
+                    <td>Faculty</td>
+                    <td>Faculty of Information Management</td>
+                </tr>
+                <tr>
+                    <td>Submission Date</td>
+                    <td>31 May 2026</td>
+                </tr>
+                <tr>
+                    <td>Published URL</td>
+                    <td><a class="highlight" href="https://ariff.digital">https://MZulfikaAhmad.digital</a></td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Who Am I?</h2>
+            <div class="section-content">
+                <p class="bio-text">
+                    I have worked and have knowledge from various <span class="highlight">sales, <span class="highlight">customer service, <span 		            class="highlight">administration and business support positions across various industries
+                </p>
+                <p class="bio-text">
+                    I am currently working for <span class="highlight-green"> TM Tech Technology Sdn. Bhd.</span> from the Unifi Business sector.As a part 		    of this position, I will support business customers, assist with applications, support sales activities, respond to customers' enquiries 	            and offer appropriate Unifi Business solutions.
+                </p>
+                <p class="bio-text">
+                    I am currently studying my <span class="highlight">Bachelor's Degree in Information Systems Management at UiTM </span>. My studies  	            enable me to broaden my know-how of information systems, technology, database administration, digital business solutions.
+                </p>
+		<p class="bio-text">
+                    To continue building my professional experience and knowledge in <span class="highlight">IT </span> and <span class="highlight">business 	            support </span>to become a proactive, responsible and professional who can offer valuable technology solutions to people and 			    organizations.
+                </p>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="section">
+            <h2 class="section-title">Al-Fatihah: The Peace of My Soul</h2>
+            <div class="section-content">
+                <div class="video-container">
+                    <video controls autoplay muted loop width="100%" aria-label="Scenic video showcasing the beauty of Malaysia, my homeland">
+                        <source src="video.mp4" type="video/mp4">
+                        <track kind="captions" label="Malaysia scenery video showcasing beautiful landscapes and cultural landmarks of Malaysia">
+                        Your browser does not support the video element.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="section-content">
+                <div class="skills-grid">
+
+                    <div class="skill-category">
+                        <h3>IT & Networking</h3>
+                        <ul>
+                            <li>Experience in troubleshooting system, server, and network-related issues</li>
+                            <li>Basic networking knowledge including IP address, DNS, router, and internet connectivity</li>
+                            <li>Basic understanding of virtual machines, server hosting, and cloud storage</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Business Skills</h3>
+                        <ul>
+                            <li>Customer Service & Communication</li>
+                            <li>Sales & Business Development</li>
+                            <li>Problem Solving & Teamwork</li>
+                            <li>Administration & Documentation</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Digital Skills</h3>
+                        <ul>
+                            <li>Microsoft Office Skills</li>
+                            <li>Database Management</li>
+                            <li>Web Development</li>
+                            <li>UBS Accounting System</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="section-content">
+                <div class="languages-list">
+                    <div class="language-item">
+                        <h3>Malay</h3>
+                        <div class="proficiency">Native Proficiency</div>
+                    </div>
+                    <div class="language-item">
+                        <h3>English</h3>
+                        <div class="proficiency">Professional Working</div>
+                    </div>
+		    <div class="language-item">
+                        <h3>Arabic</h3>
+                        <div class="proficiency">Basic</div>
+                    </div>
+		    <div class="language-item">
+                        <h3>Mandarin</h3>
+                        <div class="proficiency">Basic</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p style="margin-bottom: 10px;">&copy; 2026 Mohamad Zulfika Bin Ahmad. All rights reserved.</p><br>
+        <p>
+            Recommended browser: Google Chrome / Mozilla Firefox<br>
+            Recommended resolution: 1366 × 768 and above
+        </p>
+    <p>Last updated: 31 May 2026</p>
+    </footer>
+
+    
+</body>
+</html>
